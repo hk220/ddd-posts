@@ -1,0 +1,15 @@
+attrs==19.3.0
+# Editable Git install with no remote (ddd-posts==1.0.0)
+-e /workspace
+iniconfig==1.0.1
+injector==0.18.3
+more-itertools==8.4.0
+packaging==20.4
+pluggy==0.13.1
+py==1.9.0
+pyparsing==2.4.7
+pytest==6.0.1
+six==1.15.0
+SQLAlchemy==1.3.18
+toml==0.10.1
+typing-extensions==3.7.4.2
