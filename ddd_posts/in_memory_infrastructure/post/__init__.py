@@ -3,13 +3,12 @@ from typing import List, Dict
 from uuid import UUID, uuid4
 
 
-from injector import Module, singleton
+import inject
 
 from ddd_posts.domain.model.post import PostFactoryInterface, PostRepositoryInterface
 from ddd_posts.domain.model.post import Post, PostID, PostContent
 
 
-@singleton
 class InMemoryPostFactory(PostFactoryInterface):
     
     def __init__(self):
@@ -21,7 +20,6 @@ class InMemoryPostFactory(PostFactoryInterface):
         return Post(post_id, post_content)
 
 
-@singleton
 class InMemoryPostRepository(PostRepositoryInterface):
 
     __kv: Dict[PostID, Post] = {}
@@ -39,7 +37,9 @@ class InMemoryPostRepository(PostRepositoryInterface):
         self.__kv[post.post_id] = copy(post)
 
 
-class InMemoryPostModule(Module):
-    def configure(self, binder):
-        binder.bind(PostFactoryInterface, to=InMemoryPostFactory)
-        binder.bind(PostRepositoryInterface, to=InMemoryPostRepository)
+def configure(binder):
+    binder.bind_to_constructor(PostFactoryInterface, InMemoryPostFactory)
+    binder.bind_to_constructor(PostRepositoryInterface, InMemoryPostRepository)
+
+
+inject.configure(configure)

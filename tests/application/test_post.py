@@ -1,16 +1,14 @@
 import string
 
 import pytest
-from injector import Injector
+import inject
 
 from ddd_posts.application.post import PostApplicationService
-from ddd_posts.in_memory_infrastructure.post import InMemoryPostModule
 
 
 @pytest.fixture
 def service():
-    injector = Injector([InMemoryPostModule])
-    return injector.get(PostApplicationService)
+    return PostApplicationService()
 
 
 def test_one_post(service):
