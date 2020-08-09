@@ -1,8 +1,7 @@
 attrs==19.3.0
-# Editable Git install with no remote (ddd-posts==1.0.0)
--e /workspace
+-e git+https://github.com/hk220/ddd-posts.git@2aedaccd0a35bfd6b40744711dc808ce74e194de#egg=ddd_posts
 iniconfig==1.0.1
-injector==0.18.3
+Inject==4.2.0
 more-itertools==8.4.0
 packaging==20.4
 pluggy==0.13.1
