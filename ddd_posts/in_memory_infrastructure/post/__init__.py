@@ -2,7 +2,6 @@ from copy import copy
 from typing import List, Dict
 from uuid import UUID, uuid4
 
-
 import inject
 
 from ddd_posts.domain.model.post import PostFactoryInterface, PostRepositoryInterface
